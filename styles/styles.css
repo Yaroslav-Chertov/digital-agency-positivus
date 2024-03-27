@@ -152,30 +152,30 @@ svg * {
 }
 @font-face {
   font-family: "Space Grotesk";
-  src: url(../fonts/SpaceGrotesk-Regular.woff2) format("woff2");
+  src: url("../fonts/SpaceGrotesk-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Space Grotesk";
-  src: url(../fonts/SpaceGrotesk-Medium.woff2) format("woff2");
+  src: url("../fonts/SpaceGrotesk-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 :root {
-  --color-dark: #191a23;
-  --color-dark-alt: #292a32;
+  --color-dark: #191A23;
+  --color-dark-alt: #292A32;
   --color-light: #FFFFFF;
   --color-accent: #B9FF66;
-  --color-gray: #f3f3f3;
+  --color-gray: #F3F3F3;
   --color-gray-alt: #898989;
   --border: 1px solid var(--color-dark);
   --border-radius: 14px;
   --border-radius-small: 7px;
   --border-radius-large: 45px;
-  --shadow: 0px 5px 0px 0px var(--color-dark);
+  --shadow: 0 5px 0 0 var(--color-dark);
   --font-family-base: "Space Grotesk", sans-serif;
   --container-width: 1240px;
   --container-padding-x: 20px;
@@ -183,4 +183,190 @@ svg * {
   --input-height: 59px;
   --button-height: 68px;
   --transition-duration: 0.2s;
+}
+@media (max-width: 1280px) {
+  :root {
+    --section-padding-y: 50px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --section-padding-y: 30px;
+  }
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(100%) !important;
+          clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+body {
+  font-size: clamp(16px, 1.25vw, 18px);
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+h1,
+.h1 {
+  font-size: clamp(43px, 4.1666666667vw, 60px);
+}
+
+h2,
+.h2 {
+  font-size: clamp(36px, 2.7777777778vw, 40px);
+}
+
+h3,
+.h3 {
+  font-size: clamp(26px, 2.0833333333vw, 30px);
+}
+
+h4,
+.h4 {
+  font-size: clamp(18px, 1.3888888889vw, 20px);
+}
+
+.header {
+  padding-top: 60px;
+}
+@media (max-width: 1280px) {
+  .header {
+    padding-top: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    padding-top: 15px;
+  }
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+@media (max-width: 1023px) {
+  .header__inner {
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+  }
+}
+@media (max-width: 1023px) {
+  .header__logo {
+    max-width: 120px;
+  }
+}
+@media (max-width: 767px) {
+  .header__logo {
+    max-width: 144px;
+  }
+}
+.header__menu {
+  margin-left: auto;
+  font-size: 20px;
+}
+@media (max-width: 1280px) {
+  .header__menu {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1023px) {
+  .header__menu {
+    font-size: 16px;
+  }
+}
+.header__menu-list {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+@media (max-width: 1280px) {
+  .header__menu-list {
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+}
+.header__menu-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+}
+@media (hover: hover) {
+  .header__menu-link:hover::after {
+    width: 100%;
+  }
+}
+@media (hover: none) {
+  .header__menu-link:active::after {
+    width: 100%;
+  }
+}
+.header__menu-link::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  translate: -50%;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition-duration: inherit;
+}
+.header__button {
+  height: 48px;
+  padding-inline: 18px;
+  font-size: 16px;
 }/*# sourceMappingURL=styles.css.map */
