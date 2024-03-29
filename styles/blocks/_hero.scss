@@ -3,11 +3,19 @@
     flex-direction: column;
     row-gap: var(--section-padding-y);
 
+    @include desktop {
+        row-gap: 60px;
+    }
+
     &__main {
         display: flex;
         justify-content: space-between;
         align-items: start;
         column-gap: 30px;
+
+        @include mobile {
+            flex-direction: column;
+        }
     }
 
     &__body {
@@ -16,11 +24,34 @@
         align-items: start;
         max-width: 531px;
         row-gap: 35px;
+
+        @include mobile {
+            display: contents;
+        }
+    }
+
+    &__title {
+        @include mobile {
+            order: -2;
+            margin-bottom: 10px;
+        }
     }
 
     &__description {
         font-size: 20px;
         line-height: 1.4;
+
+        @include mobile {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__button {
+        @include mobile {
+            max-width: 390px;
+            width: 100%;
+            margin-inline: auto;
+        }
     }
 
     &__partners {
@@ -29,10 +60,53 @@
             justify-content: space-between;
             column-gap: 37px;
             list-style-type: none;
+
+            @include tablet {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: 20px;
+            }
+
+            @include mobile-s {
+                --heroPartnersWidthOffSetX: 60px;
+
+                column-gap: 0;
+                width: calc(100vw + var(--heroPartnersWidthOffSetX) * 2);
+                margin-left: calc((var(--heroPartnersWidthOffSetX) + var(--container-padding-x)) * -1);
+            }
+        }
+
+        &-item {
+            @include tablet {
+                display: flex;
+                justify-content: center;
+            }
+
+            @include mobile-s {
+                justify-content: start;
+
+                &:nth-child(-n + 3) {
+                    justify-content: end;
+                }
+            }
         }
 
         &-image {
             filter: grayscale(1);
+        }
+    }
+
+    &__image {
+        @include tablet {
+            max-width: 40%;
+            height: auto;
+        }
+
+        @include mobile {
+            order: -1;
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
         }
     }
 }
