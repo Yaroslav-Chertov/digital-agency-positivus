@@ -327,6 +327,11 @@ h4,
   grid-template-columns: repeat(var(--gridColumns), 1fr);
   gap: 40px;
 }
+@media (max-width: 767px) {
+  .grid {
+    gap: 30px;
+  }
+}
 .grid--2 {
   --gridColumns: 2;
 }
@@ -359,6 +364,21 @@ h4,
 }
 .grid--12 {
   --gridColumns: 12;
+}
+@media (max-width: 1023px) {
+  .grid--2 {
+    --gridColumns: 1;
+  }
+}
+@media (max-width: 1280px) {
+  .grid--3 {
+    --gridColumns: 2;
+  }
+}
+@media (max-width: 767px) {
+  .grid--3 {
+    --gridColumns: 1;
+  }
 }
 
 .burger-button {
@@ -721,6 +741,13 @@ h4,
   border-radius: var(--border-radius-large);
   box-shadow: var(--shadow);
 }
+@media (max-width: 767px) {
+  .service-card {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 27px;
+  }
+}
 .service-card--accent-bg {
   background-color: var(--color-accent);
 }
@@ -733,13 +760,34 @@ h4,
   justify-content: space-between;
   row-gap: 30px;
 }
+@media (max-width: 767px) {
+  .service-card__body {
+    display: contents;
+  }
+}
 .service-card__image {
   align-self: center;
+}
+@media (max-width: 1280px) {
+  .service-card__image {
+    max-width: 50%;
+    height: auto;
+  }
+}
+@media (max-width: 767px) {
+  .service-card__image {
+    max-width: 165px;
+  }
 }
 .service-card__title {
   display: flex;
   flex-direction: column;
   align-items: start;
+}
+@media (max-width: 767px) {
+  .service-card__title {
+    grid-column: -1/1;
+  }
 }
 .service-card__link {
   --serviceCardLinkIconColor: var(--color-accent);
@@ -759,6 +807,11 @@ h4,
     opacity: 0.7;
   }
 }
+@media (max-width: 767px) {
+  .service-card__link {
+    align-self: end;
+  }
+}
 .service-card__link--light {
   --serviceCardLinkIconColor: var(--color-dark);
   color: var(--color-light);
@@ -774,6 +827,21 @@ h4,
 }
 .service-card__link-icon-wrapper svg {
   color: var(--serviceCardLinkIconColor);
+}
+@media (max-width: 767px) {
+  .service-card__link-label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    -webkit-clip-path: inset(100%) !important;
+            clip-path: inset(100%) !important;
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+  }
 }
 
 .banner {
