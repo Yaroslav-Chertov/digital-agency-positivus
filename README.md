@@ -25,7 +25,7 @@
 ## Инструкция по установке
 
 ```
-git clone https://github.com/Yaroslav-Chertov/russian-north.git
+git clone https://github.com/Yaroslav-Chertov/digital-agency-positivus.git
 ```
 
 Затем запустить локальный сервер.
